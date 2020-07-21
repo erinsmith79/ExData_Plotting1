@@ -1,0 +1,11 @@
+# With reformatting in Python first:
+setwd("/Users/erinsmith/researchlab")
+datafile<-read.delim(file.choose("nucdata5.txt"))
+colnames(datafile, do.NULL=FALSE)
+colnames(datafile) <-c("chromosome","position","value")
+head(datafile)
+
+# Without reformatting in Python first:
+wig_path<-file.path("/Users/erinsmith/researchlab", "nucdata.wig")
+nucdatafinal<-import(con=wig_path, seqinfo=seqinfo(genome="sc"))
+nucdatafinal
